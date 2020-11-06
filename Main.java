@@ -1,12 +1,17 @@
 package com.emilkowalczyk;
 
+import com.emilkowalczyk.drive.HDDDrive;
+import com.emilkowalczyk.drive.SSDDrive;
+
 public class Main {
 
     public static void main(String[] args) {
-
         Monitor monitor = new Monitor();
-        System.out.println(monitor.getResolution());
-        monitor.setLowResolution();
-        System.out.println(monitor.getResolution());
+        //HDDDrive drive = new HDDDrive();
+        SSDDrive drive = new SSDDrive();
+
+        Computer computer = new Computer(monitor, drive);
+        drive.addFile(new File("Drugi.jpg"));
+        drive.listFiles();
     }
 }

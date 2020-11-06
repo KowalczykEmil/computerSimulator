@@ -1,7 +1,9 @@
 package com.emilkowalczyk;
 
 import com.emilkowalczyk.drive.Drive;
+import com.emilkowalczyk.usbdevice.USBDevice;
 
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,5 +45,22 @@ public class Computer {
 
     public List<USBDevice> getUsbDevices() {
         return usbDevices;
+    }
+
+    public void addUSBDevice(USBDevice usbDevice) {
+        boolean isConnected = usbDevice.connect();
+
+        if (isConnected) {
+            usbDevices.add(usbDevice);
+        }
+    }
+
+    public void removeUSBDevice(USBDevice usbDevice) {
+        boolean isDisconnected = usbDevice.disconnect();
+
+        if(!isDisconnected) {
+            System.out.println("Forcibly removed USB Devices");
+        }
+        usbDevices.remove(usbDevice);
     }
 }

@@ -30,7 +30,7 @@ public class MemoryStick implements USBDevice{
         System.out.println("Ejecting Memory Stick");
         ejected = true;
     }
-    
+
     @Override
     public String getName() {
         return name;
