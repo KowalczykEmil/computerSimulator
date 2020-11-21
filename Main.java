@@ -1,29 +1,29 @@
 package com.emilkowalczyk;
 
+import com.emilkowalczyk.drive.Drive;
 import com.emilkowalczyk.drive.HDDDrive;
 import com.emilkowalczyk.drive.SSDDrive;
-import com.emilkowalczyk.usbdevice.MemoryStick;
-import com.emilkowalczyk.usbdevice.Mouse;
+import com.emilkowalczyk.file.File;
+import com.emilkowalczyk.file.imagefile.GIFImageFile;
+import com.emilkowalczyk.file.imagefile.JPGImageFile;
+import com.emilkowalczyk.file.musicfile.MP3MusicFile;
 
 public class Main {
 
     public static void main(String[] args) {
-        Monitor monitor = new Monitor();
-        //HDDDrive drive = new HDDDrive();
-        SSDDrive drive = new SSDDrive();
+        GIFImageFile gif1 = new GIFImageFile("nazwa1.gif", 100);
+        JPGImageFile jpg1 = new JPGImageFile("nazwa1.jpg", 200, 80);
 
-        Computer computer = new Computer(monitor, drive);
-        //drive.addFile(new File("Drugi.jpg"));
-        //drive.listFiles();
+        MP3MusicFile mp3file = new MP3MusicFile("plik.mp3", 4000, "Szpaku", "Wojna podwórek", 100);
 
-        MemoryStick karta = new MemoryStick("Karta");
-        Mouse mouse = new Mouse("Mysz");
+        Drive drive = new HDDDrive();
+        drive.addFile(gif1);    // dodanie gif1 do dysku
+        drive.addFile(jpg1);    // dodanie jpg1 do dysku
+        drive.addFile(mp3file); // dodanie mp3file do dysku
 
-        computer.addUSBDevice(karta);
-        computer.addUSBDevice(mouse);
-        karta.eject();
-        computer.removeUSBDevice(karta);
-        computer.removeUSBDevice(mouse);
+        drive.listFiles();  //Wyświetlanie plików z dysku
+        File file = drive.findFile("plik.mp3");
+        System.out.println(file.getSize());
 
     }
 }
