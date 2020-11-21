@@ -1,26 +1,12 @@
 package com.emilkowalczyk.file.imagefile;
 
-import com.emilkowalczyk.file.File;
+import com.emilkowalczyk.file.AbstractFile;
 import com.emilkowalczyk.file.FileType;
 
-public abstract class AbstractImageFile implements File {
-    protected String name;
-    protected int size;
+public abstract class AbstractImageFile extends AbstractFile {
 
-    public AbstractImageFile(String name, int size) {
-        this.name = name;
-        this.size = size;
-    }
-
-
-    @Override
-    public String getName() {
-        return this.name;
-    }
-
-    @Override
-    public int getSize() {
-        return this.size;
+    protected AbstractImageFile(String name, int size) {
+        super(name, size);
     }
 
     @Override

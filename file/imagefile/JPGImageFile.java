@@ -1,7 +1,7 @@
 package com.emilkowalczyk.file.imagefile;
 
 public class JPGImageFile extends AbstractImageFile {
-    int compression;
+    private int compression;
 
     public JPGImageFile(String name, int size, int compression) {
         super(name, size);
