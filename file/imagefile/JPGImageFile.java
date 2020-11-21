@@ -1,35 +1,11 @@
 package com.emilkowalczyk.file.imagefile;
 
-import com.emilkowalczyk.file.File;
-import com.emilkowalczyk.file.FileType;
-
-public class JPGImageFile implements File {
-
-    String name;
-    int size;
-    private final FileType fileType;
+public class JPGImageFile extends AbstractImageFile {
     int compression;
 
-    public JPGImageFile(String name, int size, FileType fileType, int compression) {
-        this.name = name;
-        this.size = size;
-        this.fileType = fileType;
+    public JPGImageFile(String name, int size, int compression) {
+        super(name, size);
         this.compression = compression;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public int getSize() {
-        return size;
-    }
-
-    @Override
-    public FileType getType() {
-        return fileType;
     }
 
     public int getCompression() {
