@@ -1,6 +1,6 @@
 package com.emilkowalczyk.drive;
 
-import com.emilkowalczyk.File;
+import com.emilkowalczyk.file.File;
 
 public interface Drive {
     void addFile(File file);
